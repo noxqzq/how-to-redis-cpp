@@ -1,0 +1,43 @@
+# Compiled binaries & objects
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+*.dylib
+
+# Your build outputs (extensionless binaries — list them explicitly)
+echo
+server
+redis
+/bin/
+/build/
+cmake-build-*/
+
+# CMake junk (if you go the CMake route)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+compile_commands.json
+
+# Debug artifacts
+*.dSYM/
+core
+vgcore.*
+*.log
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# stage info
+*.txt
