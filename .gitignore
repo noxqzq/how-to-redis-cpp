@@ -38,6 +38,3 @@ vgcore.*
 # OS cruft
 .DS_Store
 Thumbs.db
-
-# stage info
-*.txt

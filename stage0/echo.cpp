@@ -17,7 +17,7 @@ int main() {
     addr.sin_port = htons(8080);         // htons = host-to-network byte order
 
     bind(server_fd, (sockaddr*)&addr, sizeof(addr));
-    listen(server_fd, 16);               // 16 = backlog of pending connections
+    listen(server_fd, 16);               // 16 = backlog of pending connections (raise if bigger load)
     std::cout << "listening on :8080\n";
 
     while (true) {
