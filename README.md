@@ -4,19 +4,20 @@ Ever wondered what a "server" actually is? So did I. So I'm rebuilding Redis in 
 
 ## How this repo works
 
-Each stage is one folder holding a single `server.cpp` you can compile and run, plus a `stage?.txt` that explains the code line by line — what's new, why it's built that way, and what it deliberately leaves broken for a later stage to fix. Start at [stage0/stage0.txt](stage0/stage0.txt); every writeup ends by setting up the next one.
+Each stage is one folder holding a single `server.cpp` you can compile and run, plus a `README.md` that explains the code line by line — what's new, why it's built that way, and what it deliberately leaves broken for a later stage to fix. Start at [stage0](stage0/); every writeup ends by setting up the next one.
 
 | Stage | What it builds | The big idea |
 |-------|----------------|--------------|
 | [stage0](stage0/) | an echo server | sockets: bind, listen, accept — bytes in, bytes out |
 | [stage1](stage1/) | speaks RESP | a protocol is agreed structure on top of a byte stream |
 | [stage2](stage2/) | SET / GET / DEL | the database is a map that outlives the command |
+| [stage3](stage3/) | poll() event loop | serve every client at once — one thread, no locks |
 
 
 ## Running a stage
 
 ```sh
-cd stage2
+cd stage3
 c++ -std=c++17 -Wall -Wextra -o server server.cpp
 ./server
 ```
@@ -37,4 +38,4 @@ Stage 0 predates the protocol — talk to it with `nc localhost 8080` instead: t
 
 ## Where it's headed
 
-An event loop to serve many clients at once, expiring keys, and persistence.
+More commands (`INCR`, `EXISTS`), expiring keys (`EXPIRE` / `TTL`), and persistence.
